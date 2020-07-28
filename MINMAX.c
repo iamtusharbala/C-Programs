@@ -1,3 +1,20 @@
+/*A minimax in a two-dimensional array is the element that is the minimum of its row and maximum of its column, or vice versa. For example in the following array
+
+11     22    33    33
+
+99    55    66    77
+
+77    44    99    22
+
+
+the element 33 is a minimax because it is the maximum of row 0 and the minimum of column 2. The element 55 is another minimax because it is the minimum of row 1 and the maximum of column 1. Write and test a program that reads the integers m and n, and then reads an m-by-n matrix, and then prints the location and value of each minimax in the matrix. For example, it would print
+
+a[0,2] = 33 is a minimax 
+
+a[1,1] = 55 is a minimax 
+
+for the matrix shown above.*/
+
 #include <stdio.h>
 int main(void) {
   int a[50][50],row,col,i=0,j=0,big=0,small=0,sinew,sjnew,binew,bjnew,newsmall=0,newbig=0,flag=0,tempi,tempj;
