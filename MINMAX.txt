@@ -1,0 +1,83 @@
+#include <stdio.h>
+int main(void) {
+  int a[50][50],row,col,i=0,j=0,big=0,small=0,sinew,sjnew,binew,bjnew,newsmall=0,newbig=0,flag=0,tempi,tempj;
+  printf("Enter row no:\n");
+  scanf("%d", &row);
+  printf("Enter col no:\n");
+  scanf("%d", &col);
+  printf("Enter elements into array:\n");
+  for(i=0;i<row;i++){
+    for(j=0;j<col;j++){
+      scanf("%d",&a[i][j]);
+    }
+  }
+  //correct till here
+  for(i=0;i<row;i++){
+    for(j=0;j<col;j++){
+      if((i==0&&j==0) || j==0 ){
+        small=a[i][j];
+        big=a[i][j];
+        sinew = i;
+        sjnew = j;
+        binew = i;
+        bjnew = j;
+      }
+      else if(small>a[i][j]){
+        small=a[i][j];
+        sinew = i;
+        sjnew = j;
+      }
+      else if(big<a[i][j]){
+        big=a[i][j];
+        binew = i;
+        bjnew = j;
+      }
+      else{
+        continue;
+      }
+    }
+    printf("\n");
+    tempi=i;
+    tempj=j;
+    //to find big in row is small in column
+    j=bjnew;
+    for(i=0;i<row;i++){
+      if(i==0&&j==bjnew){
+        newsmall = a[i][j];
+      } 
+      else if(newsmall<a[i][j]){
+        continue;
+      }
+      else{
+        flag=1;
+        break;
+      }
+    }
+    if(flag==0 && big==newsmall){
+      printf("a[%d][%d]= %d is a minmax",binew,bjnew,big);
+    }
+    //to find small in row is big in column
+    j=sjnew;
+    for(i=0;i<row;i++){
+      if(i==0&&j==sjnew){
+        newbig=a[i][j];
+      }
+      else if(newbig<a[i][j]){
+        newbig=a[i][j];
+      }
+      else{
+        flag=1;
+        break;
+      }
+    }
+    if(flag==1 && small==newbig){
+      printf("a[%d][%d]= %d is a minmax",sinew,sjnew,small);
+    }
+    i=tempi;
+    j=tempj;
+    printf("\n");
+
+  }
+ 
+
+}
