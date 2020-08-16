@@ -7,7 +7,7 @@ Output:Cell index pair (i, j) where is the row no & j is the column no*/
 down => flag=1
 left => flag=2
 up => flag=3
-down => flag=0
+right => flag=0
 */
 
 #include <stdio.h>
